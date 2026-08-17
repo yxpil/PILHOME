@@ -1,0 +1,34 @@
+# PILHOME 工作区 —— 物联网 + AI 边缘计算的智能家居安全监控系统
+#
+# 结构约定:
+#   Core/             —— 负责协调总体(模块总线、注册表、生命周期)
+#   PlugsCores/<模块>/ —— 各插件核心模块(网络连接/发现、边缘AI、审计等)
+#   Server/           —— 负责管理网页和内核桥接的服务
+#   WebUI/            —— 网页和控制端
+[workspace]
+resolver = "2"
+members = [
+  "Core",
+  "PlugsCores/NetLinker",
+  "PlugsCores/NetScanear",
+  "PlugsCores/SideAgent",
+  "PlugsCores/HandModel",
+  "PlugsCores/VEScaner",
+  "PlugsCores/YololookUP",
+  "PlugsCores/SelflookUP",
+  "PlugsCores/ATOGrowUP",
+  "PlugsCores/AUTOTIME",
+  "Server",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["YxPil"]
+license = "MIT"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"

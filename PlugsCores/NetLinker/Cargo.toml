@@ -1,0 +1,11 @@
+[package]
+name = "pilhome-netlinker"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NetLinker —— 网络设备连接程序:设备模型、心跳、连接管理"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

@@ -1,0 +1,11 @@
+[package]
+name = "pilhome-yololookup"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "YololookUP —— 视频粗略代审计模块:YOLO 目标检测与审计事件"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

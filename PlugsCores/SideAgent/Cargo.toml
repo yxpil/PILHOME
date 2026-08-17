@@ -1,0 +1,11 @@
+[package]
+name = "pilhome-sideagent"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "SideAgent —— 边缘AI模型:模型注册、加载与推理调度"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

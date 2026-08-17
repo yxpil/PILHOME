@@ -1,0 +1,11 @@
+[package]
+name = "pilhome-handmodel"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "HandModel —— 模块控制程序:模块启停、参数下发、状态收集"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

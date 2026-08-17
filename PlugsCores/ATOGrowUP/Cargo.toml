@@ -1,0 +1,11 @@
+[package]
+name = "pilhome-atogrowup"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "ATOGrowUP —— 自发成长和变异程序:行为画像与规则变异"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

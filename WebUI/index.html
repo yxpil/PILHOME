@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PILHOME · 边缘网关</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#/">
+        <span class="brand-dot"></span>
+        PILHOME
+      </a>
+      <nav class="nav">
+        <a href="#/" data-route="dashboard">总览</a>
+        <a href="#/devices" data-route="devices">设备</a>
+        <a href="#/events" data-route="events">事件</a>
+        <a href="#/settings" data-route="settings">设置</a>
+        <a href="#/ai" data-route="ai">智能</a>
+      </nav>
+      <span id="clock" class="clock"></span>
+    </header>
+    <main id="app" class="app"></main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

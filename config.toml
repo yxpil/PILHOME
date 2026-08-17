@@ -1,0 +1,45 @@
+# PILHOME 网关配置(复制为 config.local.toml 按需修改)
+listen = "127.0.0.1:8080"
+webui_dir = "../WebUI/dist"
+data_dir = "data"
+offline_after_secs = 120
+event_capacity = 4096
+
+[mqtt]
+host = "127.0.0.1:1883"
+client_id = "pilhome-gateway-1"
+topic_prefix = "pilhome"
+
+[ha]
+discovery = true
+discovery_prefix = "homeassistant"
+ws_url = ""
+token = ""
+sync_interval_secs = 60
+
+[scan]
+prefix = "192.168.1"
+ports = [22, 80, 443, 445, 3389, 8123, 1883, 554]
+timeout_ms = 300
+concurrency = 32
+
+[probe]
+prefix = "192.168.1"
+rtsp_port = 554
+onvif_port = 8000
+
+# 告警 Webhook(空 = 关闭;仅 http)
+webhook_url = "
+# 数据快照间隔(秒)
+snapshot_interval_secs = 300
+
+[tasks]
+scan_interval_secs = 600
+cron_tick_secs = 30
+evolve_interval_secs = 3600
+# API Token 鉴权(默认关闭;启用后外部需带 Authorization: Bearer <token>)
+auth_enabled = false
+api_tokens = []
+
+# 远程 MySQL 同步(空 = 关闭;例 mysql://user:pass@host:3306/pilhome)
+mysql_url = ""

@@ -1,0 +1,11 @@
+[package]
+name = "pilhome-selflookup"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "SelflookUP —— 自我审计程序:健康检查、审计日志、配置校验"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

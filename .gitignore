@@ -1,0 +1,30 @@
+# 构建产物
+target/
+node_modules/
+dist/
+
+# 运行时数据(设备台账/事件/数据库/TTS/SD 图片)
+data/
+
+# 密钥与本地配置(绝不入库)
+.env
+.env.local
+config.local.toml
+*.pem
+*.key
+
+# AI 令牌/密钥
+*_API_KEY*
+*api_key*
+*.token
+token*
+
+# 日志
+*.log
+logs/
+
+# 系统
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

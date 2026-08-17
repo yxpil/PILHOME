@@ -1,0 +1,11 @@
+[package]
+name = "pilhome-netscanear"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NetScanear —— 网络设备发现程序:局域网扫描、陌生设备发现"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
