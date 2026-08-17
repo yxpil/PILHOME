@@ -43,3 +43,13 @@ api_tokens = []
 
 # 远程 MySQL 同步(空 = 关闭;例 mysql://user:pass@host:3306/pilhome)
 mysql_url = ""
+[ai]
+base_url = "https://cidaiji.com/v1"
+model = "PILLOWV1"
+vision_model = ""
+api_key = ""        # 留空读环境变量 AI_API_KEY(token 绝不入库)
+
+# TTS 与图像生成(可选;空 = 关闭)
+tts_url = ""
+comfyui_url = "http://127.0.0.1:8188"
+ai_review_secs = 21600

@@ -23,6 +23,7 @@ mod js;
 mod media;
 mod modules;
 mod mqtt;
+mod mcp;
 mod persistence;
 mod state;
 mod webhook;

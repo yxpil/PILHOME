@@ -36,6 +36,7 @@ pub mod wol;
 pub fn router() -> Router<Arc<AppState>> {
     Router::new()
         .route("/api/devices", get(devices::list).post(devices::upsert))
+        .route("/api/devices/{id}/event", post(devices::event))
         .route("/api/devices/{id}/trust", post(devices::set_trust))
         .route("/api/events", get(events::list))
         .route("/api/scan/run", post(scan::run))
@@ -73,6 +74,7 @@ pub fn router() -> Router<Arc<AppState>> {
         .route("/api/vendors", get(discover::vendors))
         .route("/api/wol", post(wol::wake))
         .route("/api/export/events", get(export::events))
+        .route("/api/mcp", axum::routing::post(crate::mcp::handler))
         .route("/api/ai/chat", post(ai::chat))
         .route("/api/ai/analyze", post(ai::analyze))
         .route("/api/ai/compress", post(ai::compress))
