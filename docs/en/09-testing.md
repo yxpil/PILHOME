@@ -16,6 +16,23 @@ cargo test --workspace
 | pilhome-netlinker | 2 | WOL packet structure, MAC parsing |
 | pilhome-server | 4 | CSV BOM/rows, XLSX zip validity, column names, vendor classification |
 
+## 1.1 Injection tests added
+
+- `pilhome-netlinker` (`wol::tests::hostile_mac_inputs_are_rejected_or_sanitized_never_panic`):
+  MAC strings come from untrusted API/CLI input. Shell-metacharacter payloads
+  (`; rm -rf /`, `&& calc.exe`), path traversal (`../../etc/passwd`), XSS
+  (`<script>`), empty/whitespace/newline input are all rejected (`None`) or
+  sanitized to a clean 6-byte MAC — never panic, never out-of-bounds.
+
+## 1.2 Known pre-existing build blocker (NOT introduced by tests)
+
+- `pilhome-server` does **not** compile as committed on `main`:
+  `Server/src/api/mod.rs` declares `pub mod token;` and routes `/api/token*` to
+  `token::{issue,status,revoke}`, but `Server/src/api/token.rs` was never
+  committed. Fixing it requires writing that source module (out of scope for a
+  test-only change). The pure `plugs-core` crates (netlinker/netscanear/...) build
+  and test independently with `cargo test -p <crate>`.
+
 ## 2. Build Verification
 
 ```powershell

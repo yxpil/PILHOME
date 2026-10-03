@@ -61,4 +61,26 @@ mod tests {
         assert!(parse_mac("zz:zz:zz:zz:zz:zz").is_none());
         assert!(parse_mac("00:11:22").is_none());
     }
+
+    #[test]
+    fn hostile_mac_inputs_are_rejected_or_sanitized_never_panic() {
+        // 注入测试：MAC 来自不可信输入（API/CLI）。解析器只能产出干净的 6 字节，
+        // 垃圾字符要么被过滤后仍不足 12 位而拒绝(None)，绝不能 panic / 越界。
+        // 命令注入载荷：非十六进制字符被滤掉后仍凑不成合法 MAC
+        assert!(parse_mac("00:11:22:33:44:55; rm -rf /").is_none());
+        assert!(parse_mac("00:11:22:33:44:55 && calc.exe").is_none());
+        // 路径穿越
+        assert!(parse_mac("../../etc/passwd").is_none());
+        // XSS / HTML
+        assert!(parse_mac("<script>alert(1)</script>").is_none());
+        // 空 / 空白 / 带换行的尾巴
+        assert!(parse_mac("").is_none());
+        assert!(parse_mac("   ").is_none());
+        assert!(parse_mac("00:11:22:33:44:55\nINJECTED").is_none());
+        // 正常格式回归仍可用
+        assert_eq!(
+            parse_mac("00-11-22-33-44-55"),
+            Some([0x00, 0x11, 0x22, 0x33, 0x44, 0x55])
+        );
+    }
 }
