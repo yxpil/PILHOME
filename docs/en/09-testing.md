@@ -1,3 +1,12 @@
+# PILHOME 测试说明
+
+- 测试完成：部分（2026-10-04）
+- 测试日期：2026-10-04
+- 测试内容：纯 PlugsCore crate 单元测试（netscanear ARP/mDNS 解析、netlinker MAC/WOL、sideagent 手势规则、atogrowup、vescaner、autotime 等）；本次新增 netlinker MAC 注入测试（shell 元字符/路径穿越/XSS/空白注入被拒或净化不 panic）。**未完成**：pilhome-server 因预存在缺 `Server/src/api/token.rs` 无法编译，其 REST/自动化钩子/MQTT 事件层测试未覆盖。
+- 运行命令：`cargo test -p <crate>`（workspace 整体 `cargo test --workspace` 因 server 缺文件失败）
+- 测试框架：Rust `#[cfg(test)]`
+- 模型：豆包（Doubao）生成
+
 # Testing & Verification
 
 ## 1. Automated Tests (all green)
