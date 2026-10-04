@@ -78,3 +78,15 @@ cargo build --release
 | [docs/11-自动化与开放接入.md](docs/11-自动化与开放接入.md) | 内置自动化引擎、WebSocket 实时流、开放接入 |
 | [docs/12-网络发现与厂商生态.md](docs/12-网络发现与厂商生态.md) | 局域网发现、WOL、厂商 SDK、Token、存储 |
 | [docs/13-MCP接入.md](docs/13-MCP接入.md) | MCP 智能体接入(Claude/Cursor 直连操控全屋) |
+
+---
+
+<div align="center">
+
+<a href="https://github.com/yxpil/PILHOME">
+  <img width="100%" src="https://alittlecatgirlpanel.yxp.hk/card?repo=yxpil/PILHOME" alt="gh-card · yxpil/PILHOME" />
+</a>
+
+<sub>Powered by <a href="https://alittlecatgirlpanel.yxp.hk"><b>gh-card</b></a> · 粉色手写体 README 仓库名片</sub>
+
+</div>
